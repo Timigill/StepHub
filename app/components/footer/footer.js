@@ -36,10 +36,10 @@ function Footer() {
                     <p>Email: support@stephub.com</p>
                     <p>Phone: +1 (800) 123-4567</p>
                     <div className="social-icons">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"></a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"></a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"></a>
                     </div>
                 </div>
             </div>
