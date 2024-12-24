@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
-import "./signup.css"; // Ensure the path to the CSS file is correct
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+import "./signup.css"; 
 
 const Signup = ({ setUser }) => {
     const { register, handleSubmit, setError, formState: { errors } } = useForm();
@@ -17,15 +17,15 @@ const Signup = ({ setUser }) => {
                 headers: { 'Content-Type': 'application/json' },
             });
 
-            // Show success toast
+            
             toast.success('Signup successful!', { position: 'top-right' });
 
-            // Optional: Update user state
+           
             if (setUser) {
                 setUser(response.data); 
             }
 
-            // Store user data in localStorage (if needed)
+          
             localStorage.setItem('user', JSON.stringify(response.data));
         } catch (err) {
             console.error('Signup failed:', err.message);
@@ -35,7 +35,6 @@ const Signup = ({ setUser }) => {
                 setError("email", { message: err.message });
             }
 
-            // Show error toast
             toast.error('Signup failed. Please try again.', { position: 'top-right'});
         }
     };
@@ -46,7 +45,7 @@ const Signup = ({ setUser }) => {
 
     return (
         <div className="signup-container">
-            <ToastContainer /> {/* Required for displaying toasts */}
+            <ToastContainer /> {}
             <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
                 <h2>Sign Up</h2>
                 <input 

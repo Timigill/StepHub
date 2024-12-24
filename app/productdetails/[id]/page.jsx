@@ -1,25 +1,24 @@
-'use client'; // This ensures the component is a client-side component
+'use client'; 
 
 import React from 'react';
 import { useParams } from 'next/navigation';
-import products from '@/app/api/products/page'; // Ensure this path and data are correct
-import { useCart } from '@/app/context/cartcontext'; // Import the Cart context
-import './productdetails.css'; // Ensure the CSS file exists
+import products from '@/app/api/products/page'; 
+import { useCart } from '@/app/context/cartcontext'; 
+import './productdetails.css'; 
 
 const ProductDetails = () => {
-    const { id } = useParams(); // Extract product ID from the URL
-    const { addToCart } = useCart(); // Access addToCart function from context
+    const { id } = useParams(); 
+    const { addToCart } = useCart(); 
 
-    // Find the product with the matching ID
     const product = products.find((item) => item.id === Number(id));
 
     if (!product) {
-        // Fallback UI for an invalid product ID
+
         return <p>Product not found. Please check the URL.</p>;
     }
 
     const handleAddToCart = () => {
-        // Add product to the cart
+       
         addToCart(product);
     };
 
