@@ -1,23 +1,26 @@
 .footer {
   background-color: #212121;
   color: white;
-  padding: 2rem 0;
-  font-size: 1rem;
+  padding: 1rem 0; /* Reduced padding */
+  font-size: 0.9rem; /* Smaller font size */
 }
 
 .footer-container {
   display: flex;
   justify-content: space-around;
-  padding: 2rem;
+  padding: 1rem; /* Reduced padding */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .footer-section {
-  max-width: 300px;
+  max-width: 250px; /* Reduced max width */
+  flex: 1; /* Allow sections to grow equally */
+  margin: 0.5rem; /* Reduced margin for spacing */
 }
 
 .footer-section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem; /* Smaller heading size */
+  margin-bottom: 0.5rem; /* Reduced margin */
 }
 
 .footer-section ul {
@@ -26,7 +29,7 @@
 }
 
 .footer-section ul li {
-  margin: 0.5rem 0;
+  margin: 0.3rem 0; /* Reduced margin */
 }
 
 .footer-section ul li a {
@@ -40,8 +43,8 @@
 }
 
 .social-icons a {
-  font-size: 1.5rem;
-  margin-right: 10px;
+  font-size: 1.2rem; /* Smaller icon size */
+  margin-right: 8px; /* Reduced margin */
   color: white;
   transition: color 0.3s;
 }
@@ -52,20 +55,25 @@
 
 .footer-bottom {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem; /* Reduced margin */
 }
 
 .footer-bottom p {
-  font-size: 0.9rem;
+  font-size: 0.8rem; /* Smaller font size */
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
   .footer-container {
-      flex-direction: column;
-      align-items: center;
+    font-size: 0.7REM;
+      /* flex-direction: column; Stack sections vertically */
+      align-items: center; /* Center align items */
   }
 
   .footer-section {
-      margin-bottom: 2rem;
+      margin-bottom: 0.7rem; /* Add space between sections */
+      max-width: 100%; /* Allow full width on smaller screens */
+      font-size: 0.8REM;
+      text-align: center; /* Center text for better readability */
   }
 }
