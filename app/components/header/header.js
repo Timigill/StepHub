@@ -11,18 +11,22 @@ function Header() {
         setDropdownOpen(!isDropdownOpen);
     };
 
+    const closeDropdown = () => {
+        setDropdownOpen(false); // Close the dropdown
+    };
+
     return (
         <header>
             <div className="logo">
                 <Link href="/"><img src="/Logo.png" alt ="Logo" /></Link>
             </div>
             <div className='links'>
-                <Link href="/"><li className='li'>Home</li></Link>
-                <Link href="/login"><li className='li'>Login</li></Link>
-                <Link href="/products"><li className='li'>Products</li></Link>
-                <Link href="/signup"><li className='li'>Signup</li></Link>
+                <Link href="/"><li className='li' onClick={closeDropdown}>Home</li></Link>
+                <Link href="/login"><li className='li' onClick={closeDropdown}>Login</li></Link>
+                <Link href="/products"><li className='li' onClick={closeDropdown}>Products</li></Link>
+                <Link href="/signup"><li className='li' onClick={closeDropdown}>Signup</li></Link>
                 <Link href="/cart">
-                    <li className='li'>
+                    <li className='li' onClick={closeDropdown}>
                         <span className="span">{cartNotify}</span>Cart
                     </li>
                 </Link>
@@ -31,12 +35,12 @@ function Header() {
                 ☰
             </button>
             <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-                <Link href="/"><li className='dropdown-item'>Home</li></Link>
-                <Link href="/login"><li className='dropdown-item'>Login</li></Link>
-                <Link href="/products"><li className='dropdown-item'>Products</li></Link>
-                <Link href="/signup"><li className='dropdown-item'>Signup</li></Link>
+                <Link href="/"><li className='dropdown-item' onClick={closeDropdown}>Home</li></Link>
+                <Link href="/login"><li className='dropdown-item' onClick={closeDropdown}>Login</li></Link>
+                <Link href="/products"><li className='dropdown-item' onClick={closeDropdown}>Products</li></Link>
+                <Link href="/signup"><li className='dropdown-item' onClick={closeDropdown}>Signup</li></Link>
                 <Link href="/cart">
-                    <li className='dropdown-item'>
+                    <li className='dropdown-item' onClick={closeDropdown}>
                         <span className="span">{cartNotify}</span>Cart
                     </li>
                 </Link>
