@@ -1,0 +1,128 @@
+/* cart.css */
+
+.cart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.cart-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff8835;
+}
+
+.cart-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #ff8835;
+}
+
+.cart-items-container {
+    margin-top: 20px;
+}
+
+.cart-items-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+}
+
+.cart-item-checkbox {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    appearance: none; /* Remove default checkbox styling */
+    -webkit-appearance: none; /* Safari compatibility */
+    border: 2px solid #bdc3c7; /* Light gray border */
+    border-radius: 50%; /* Makes it round */
+    outline: none;
+    cursor: pointer;
+    background-color: #ecf0f1; /* Background color */
+    transition: all 0.3s ease;
+}
+
+.cart-item-checkbox:checked {
+    background-color: #ff8835; /* Match theme color */
+    border-color: #34495e; /* Match the border color */
+}
+
+.cart-item-checkbox:checked::after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: auto;
+    background-color: #ff8835; /* White dot */
+    border-radius: 50%; /* Makes the dot round */
+}
+
+.cart-item-name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    flex: 1;
+    color: #34495e;
+}
+
+.cart-item-price {
+    font-size: 1rem;
+    color: #16a085;
+    padding-inline: 3%;
+}
+
+.cart-item-remove {
+    padding: 5px 10px;
+    color: #ff8835;
+    border: none;
+}
+.cart-item-remove i {
+    font-size: 18px;
+    color: #ff8835;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.cart-item-remove i:hover {
+    color: #fc6900;
+    transform: scale(1.2);
+}
+
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: #ff8835; /* Match theme color */
+}
+
+.cart-checkout-button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #ff8835;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.cart-checkout-button:hover {
+    background-color: #fc6900;
+}
