@@ -19,12 +19,12 @@ export default function RootLayout({ children }) {
 
             <body>
                 <CartProvider>
-                    <Header />
+                    {/* <Header /> */}
                     <ToastContainer /> {/* Ensure ToastContainer is within CartProvider */}
                     <main>
                         {React.cloneElement(children, { setUser  })}
                     </main>
-                    <Footer />
+                    {/* <Footer /> */}
                 </CartProvider>
             </body>
         </html>
