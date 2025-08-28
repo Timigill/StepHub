@@ -1,9 +1,9 @@
 'use client';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-import Footer from './components/footer/footer';
+// import Footer from './components/footer/footer';
 import "./globals.css";
-import Header from './components/header/header';
+// import Header from './components/header/header';
 import { useState } from 'react';
 import React from 'react';
 import { CartProvider } from "./context/cartcontext";
