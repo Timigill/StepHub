@@ -1,7 +1,7 @@
 Base Navbar
 *{
     margin: 0;
-    padding: 0;
+    padding: 0 ;
     box-sizing: border-box;
     
 }
@@ -268,7 +268,7 @@ Base Navbar
 
 .mobile-links {
     position: absolute;
-    top: 85px;
+    top: 62px;
     width: 100%;
     left: 0;
     justify-content: center;
