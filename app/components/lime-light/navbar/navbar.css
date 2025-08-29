@@ -20,9 +20,8 @@
 /* Logo */
 .navbar .logo img {
     margin-top: 5px;
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
+    height: 50px;
+    width: min-content;
     object-fit: cover;
     margin-left: 10px;
 }
@@ -45,7 +44,7 @@
 .center .links a {
     position: relative;
     color: #000;
-    font-size: 12px;
+    font-size: 12px !important;
     transition: color 0.3s ease;
     text-transform: uppercase;
     padding: 4px 6px;
@@ -58,7 +57,7 @@
     bottom: -3px;
     width: 100%;
     height: 2px;
-    background: #520006;
+    background: #ffc600;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease-out;
@@ -81,24 +80,31 @@
 /* Dropdown Box */
 .center .links .dropdown .mega-menu {
   position: absolute;
-  top: 60%;
+  top: 100%;
   left: 0;
   right: 0;
   width: 100%; 
   background: #ffffff;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: none;
   padding: 20px 60px;
   z-index: 99;
 
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
 
+  display: grid;
+  opacity: 0;
+  transform: translateY(15px);
+  pointer-events: none; 
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
 }
 
 .center .links .dropdown:hover .mega-menu {
-  display: grid;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 
@@ -112,7 +118,7 @@
   font-weight: 600;
   margin-left: 7px;
   text-transform: uppercase;
-  color: #520006;
+  color: #ffc600;
   margin-top: 8px;
   margin-bottom: 5px;
 }
@@ -146,14 +152,15 @@
 
 /* Bottom Link */
 .center .bottom-link {
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: -8px;
+    text-transform: uppercase;
     text-align: center;
 }
 
 .center .bottom-link a {
     position: relative;
-    font-size: 10px;
+    font-size: 12px !important;
     letter-spacing: 4px;
     color: #520006;
     text-decoration: none;
@@ -167,7 +174,7 @@
     bottom: -4px;
     width: 100%;
     height: 2px;
-    background: #520006;
+    background: #ffc600;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease-out;
@@ -183,9 +190,9 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 18px;
+    font-size: 12px !important;
     gap: 20px;
-    color: #3a3a3a;
+    color: #ffc600;
     position: relative;
 }
 
@@ -249,11 +256,16 @@
 /* Mobile Menu Button */
 .md\:hidden {
     display: block;
-    color: #520006;
+    color: #ffc600;
     font-size: 25px;
     background: none;
     border: none;
     cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+.md\:hidden:hover{
+    color: #520006;
+
 }
 .menu-btn {
   transition: transform 0.4s ease; 
@@ -270,6 +282,8 @@
     top: 85px;
     width: 100%;
     left: 0;
+    justify-content: center;
+    align-items: center;
     background: #fff;
     border-top: 1px solid #e5e7eb;
     border-radius: 0 0 10px 10px;
@@ -280,7 +294,48 @@
     padding-top: 10px;
     animation: slideDown 0.3s ease-out;
 }
+.mobile-links .mobile button {
+  position: relative;
+  font-size: 28px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #ffc600;
+  cursor: pointer;
+  border: none;
+  background: none; 
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
 
+.mobile-links .mobile button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+   transform-origin: right;
+  background: #ffc600;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.mobile-links .mobile button:hover {
+  color: #520006;
+}
+
+.mobile-links .mobile button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+
+}
+
+.mobile-links .mobile a{
+    font-size: 28px;
+    margin-right: 10px;
+    color: #ffc600;
+    padding: 0;
+}
 .mobile-links a {
     position: relative;
     color: #520006;
@@ -307,7 +362,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #520006;
+    background: #ffc600;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease-out;
@@ -332,7 +387,6 @@
 }
 
 
-/* Tablet & Desktop */
 @media (min-width: 768px) {
     .center {
         display: flex;
@@ -352,13 +406,21 @@
     }
    
 }
+/* Mobile Screens */
+@media (max-width: 767px) {
+    
+   nav > .right-icon {
+    display: none; 
+  }
+}
 
 /* Large Screens */
 @media (min-width: 1024px) {
+    
     .center .links {
         gap: 24px;
     }
-
+    
     .center .links a {
         font-size: 15px;
     }

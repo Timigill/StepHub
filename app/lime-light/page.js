@@ -103,41 +103,53 @@ export default function HomePage() {
           </div>
 
           {/* Right side circular images */}
-          <div className="ready-products">
-            <div className="ready-card">
-              <img src="/image1.jpg" alt="Product 1" />
-              <p>Product 1</p>
-            </div>
-            <div className="ready-card">
-              <img src="/image2.jpg" alt="Product 2" />
-              <p>Product 2</p>
-            </div>
-            <div className="ready-card">
-              <img src="/image3.jpeg" alt="Product 3" />
-              <p>Product 3</p>
-            </div>
-            <div className="ready-card">
-              <img src="/image4.jpeg" alt="Product 4" />
-              <p>Product 4</p>
-            </div>
-            <div className="ready-card">
-              <img src="/banner1.jpg" alt="Product 4" />
-              <p>Product 5</p>
-            </div>
-            <div className="ready-card">
-              <img src="/banner2.jpg" alt="Product 4" />
-              <p>Product 6</p>
-            </div>
-            <div className="ready-card">
-              <img src="/banner3.jpg" alt="Product 4" />
-              <p>Product 7</p>
-            </div>
-            <div className="ready-card">
-              <img src="/banner4.png" alt="Product 4" />
-              <p>Product 8</p>
-            </div>
+          <div className="accessories-scroll" ref={scrollRef}>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+                <p>BAGS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
 
-          </div>
+                <p>JEWELRY</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>WALLETS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>WATCHES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>SUNGLASSES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>HAIR ACCESSORIES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>SCARVES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>DUPATTAS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>MUFFLERS</p>
+              </div>
+
+            </div>
         </div>
       </section>
 

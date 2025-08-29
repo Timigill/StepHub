@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import "./navbar.css";
 import { useState, useEffect } from "react";
-import { FaUser, FaSearch, FaShoppingBag } from "react-icons/fa";
+import { FiUser, FiSearch, FiShoppingBag } from "react-icons/fi";
+
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -27,10 +28,10 @@ export default function Navbar() {
             <div className="left-logo">
                 <Link href="/lime-light" className="logo">
                     <Image
-                        src="/logo.svg"
+                        src="/logo-nobg.svg"
                         alt="MyStore Logo"
-                        width={120}
-                        height={60}
+                        width={70}
+                        height={70}
                         priority
                     />
                 </Link>
@@ -214,24 +215,26 @@ export default function Navbar() {
                 </div>
             </div>
 
+             {/* Icons */}
+                    <div className="right-icon">
+                        <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
+                        <Link href="/account"><FiUser /></Link>
+                        <Link href="/cart"><FiShoppingBag /></Link>
 
-            {/* Icons */}
-            <div className="right-icon">
-                <button onClick={() => setSearchOpen(!searchOpen)}><FaSearch /></button>
-                <Link href="/account"><FaUser /></Link>
-                <Link href="/cart"><FaShoppingBag /></Link>
-
-                {/* Search Box (toggle) */}
-                {searchOpen && (
-                    <div className="search-box">
-                        <input
-                            type="text"
-                            placeholder="Search products..."
-                            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        />
+                        {/* Search Box (toggle) */}
+                        {searchOpen && (
+                            <div className="search-box">
+                                <input
+                                    type="text"
+                                    placeholder="Search products..."
+                                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                />
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
+
+
+
 
             {/* Mobile Menu Button */}
             {/* Mobile Menu Button */}
@@ -248,6 +251,24 @@ export default function Navbar() {
             {/* Mobile Dropdown */}
             {open && (
                 <div className="mobile-links">
+
+                    {/* Icons */}
+                    <div className="mobile">
+                        <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
+                        <Link href="/account"><FiUser /></Link>
+                        <Link href="/cart"><FiShoppingBag /></Link>
+
+                        {/* Search Box (toggle) */}
+                        {searchOpen && (
+                            <div className="search-box">
+                                <input
+                                    type="text"
+                                    placeholder="Search products..."
+                                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                />
+                            </div>
+                        )}
+                    </div>
                     <Link href="/fashion">Fashion</Link>
                     <Link href="/shoes">Shoes</Link>
                     <Link href="/bags">Bags</Link>
