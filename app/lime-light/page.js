@@ -11,6 +11,16 @@ export default function HomePage() {
     "/banner4.png",
   ];
 
+  const scrollRef = useRef(null);
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -100 : 100,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const [current, setCurrent] = useState(0);
   const slideRef = useRef(null);
 
@@ -126,10 +136,146 @@ export default function HomePage() {
               <img src="/banner4.png" alt="Product 4" />
               <p>Product 8</p>
             </div>
-            
+
           </div>
         </div>
       </section>
+
+      {/*  Section 4*/}
+      <section className="feature section-4" style={{ marginTop: "1rem" }}>
+        <h2 style={{ marginBottom: "3rem" }}>SHOP BY COLLECTION</h2>
+
+        <div className="product-grid images">
+          <div className="product-card">
+            <img src="/image1.jpg" alt="Product 1" />
+            <div className="product-info">
+              <h3 style={{ marginTop: "1rem" }}>SPECIAL PRICE</h3>
+            </div>
+          </div>
+
+          <div className="product-card">
+            <img src="/image2.jpg" alt="Product 2" />
+            <div className="product-info">
+              <h3 style={{ marginTop: "1rem" }}>CO-ORDS</h3>
+            </div>
+          </div>
+
+          <div className="product-card">
+            <img src="/image3.jpeg" alt="Product 3" />
+            <div className="product-info">
+              <h3 style={{ marginTop: "1rem" }}>WESTERN</h3>
+            </div>
+          </div>
+
+          <div className="product-card">
+            <img src="/image4.jpeg" alt="Product 4" />
+            <div className="product-info" >
+              <h3 style={{ marginTop: "1rem" }}>SALE</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* center banner */}
+
+      <section>
+        <div className="center-banner">
+          <img src="/center banner.jpg"></img>
+        </div>
+      </section>
+
+      {/* section 5 */}
+      <section>
+        <div className="section-5">
+          <div className="category-card">
+            <img src="/men.jpeg" alt="Watches" />
+            <span>MEN</span>
+          </div>
+
+          <div className="category-card">
+            <img src="/women.jpeg" alt="Accessories" />
+            <span>WOMEN</span>
+          </div>
+
+          <div className="category-card">
+            <img src="/bags.jpeg" alt="Jewelry" />
+            <span>BAGS</span>
+          </div>
+
+          <div className="category-card">
+            <img src="/footwear.jpeg" alt="Makeup" />
+            <span>FOORWEAR</span>
+          </div>
+        </div>
+      </section>
+
+      {/* section no 6 */}
+
+      <section>
+        <div className="accessories-title">
+          <div className="heading">
+            <h2>ACCESSORIES</h2>
+            <div className="buttons">
+              <button onClick={() => scroll("left")}>◀</button>
+              <button onClick={() => scroll("right")}>▶</button>
+            </div>
+          </div>
+          <div className="accessories-wrapper">
+
+            <div className="accessories-scroll" ref={scrollRef}>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+                <p>BAGS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>JEWELRY</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>WALLETS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>WATCHES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>SUNGLASSES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>HAIR ACCESSORIES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>SCARVES</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>DUPATTAS</p>
+              </div>
+              <div className="accessory-card">
+                <img src="/p1.png" alt="Bags" />
+
+                <p>MUFFLERS</p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      
+
 
 
 
