@@ -1,4 +1,4 @@
-/* Base Navbar */
+Base Navbar
 *{
     margin: 0;
     padding: 0;
@@ -72,12 +72,10 @@
     transform-origin: left;
 }
 
-/* Dropdown Wrapper */
 .center .links .dropdown {
   position: static;
 }
 
-/* Dropdown Box */
 .center .links .dropdown .mega-menu {
   position: absolute;
   top: 100%;
@@ -108,7 +106,6 @@
 }
 
 
-/* Initial state for columns */
 .mega-menu .menu-column {
   display: flex;
   flex-direction: column;
@@ -150,7 +147,6 @@
     color: #000;
 }
 
-/* Bottom Link */
 .center .bottom-link {
     margin-top: 5px;
     margin-bottom: -8px;
@@ -185,7 +181,6 @@
     transform-origin: left;
 }
 
-/* Right Icons */
 .right-icon {
     display: flex;
     align-items: center;
@@ -200,7 +195,6 @@
     font-size: 18px;
 }
 
-/* Hover */
 .right-icon a,
 .right-icon button {
     color: inherit;
@@ -218,7 +212,6 @@
 
 
 
-/* Search Box */
 .search-box {
   position: absolute;
   top: 20px;
@@ -246,14 +239,12 @@
   box-shadow: 0 0 0 2px rgba(111,66,193,0.2);
 }
 
-/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 
-/* Mobile Menu Button */
 .md\:hidden {
     display: block;
     color: #ffc600;
@@ -275,8 +266,6 @@
   transform: rotate(90deg); 
 }
 
-
-/* Mobile Links Dropdown */
 .mobile-links {
     position: absolute;
     top: 85px;
@@ -373,7 +362,6 @@
     transform-origin: left;
 }
 
-/* Animations */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -414,7 +402,7 @@
   }
 }
 
-/* Large Screens */
+
 @media (min-width: 1024px) {
     
     .center .links {
