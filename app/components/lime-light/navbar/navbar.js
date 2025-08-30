@@ -43,8 +43,8 @@ export default function Navbar() {
                     {/* Fashion */}
                     <div className="dropdown">
                         <Link href="/fashion" className="fashion">Fashion</Link>
-                        <div className="mega-menu">
-                            <div className="menu-column">
+                        <div className="mega-menu box" >
+                            <div className="menu-column ">
                                 <h4>Men</h4>
                                 <ul>
                                     <li><Link href="/fashion/men/shirts">Shirts</Link></li>
@@ -172,7 +172,7 @@ export default function Navbar() {
                     {/* Cosmetics */}
                     <div className="dropdown">
                         <Link href="/cosmetics" className="fashion">Cosmetics</Link>
-                        <div className="mega-menu">
+                        <div className="mega-menu cosmetics">
 
                             {/* Men */}
                             <div className="menu-column">
@@ -237,7 +237,6 @@ export default function Navbar() {
 
 
             {/* Mobile Menu Button */}
-            {/* Mobile Menu Button */}
             <button
                 className={`md:hidden menu-btn ${open ? "rotate" : ""}`}
                 onClick={() => setOpen(!open)}
@@ -272,7 +271,7 @@ export default function Navbar() {
                     <Link href="/fashion">Fashion</Link>
                     <Link href="/shoes">Shoes</Link>
                     <Link href="/bags">Bags</Link>
-                    <Link href="/cosmetics">cosmetics</Link>
+                    <Link href="/cosmetics">Cosmetics</Link>
 
                 </div>
             )}

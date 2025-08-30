@@ -1,0 +1,218 @@
+/* ------------------ Container ------------------ */
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffc600, #520006);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ------------------ Card ------------------ */
+.signup-container > div {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+/* ------------------ Heading ------------------ */
+.signup-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #520006;
+  font-weight: bold;
+}
+
+/* ------------------ Form Rows ------------------ */
+.signup-form .row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+/* ------------------ Input Box with Floating Label & Icon ------------------ */
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.input-box .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #520006;
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 16px 10px 9px 36px; /* space for icon */
+  font-size: 1rem;
+  outline: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.input-box label {
+  position: absolute;
+  left: 36px;
+  top: 14px;
+  font-size: 1rem;
+  color: #555;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: #fff;
+  padding: 0 4px;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label,
+.input-box select:focus + label,
+.input-box select:not([value=""]) + label {
+  top: -7px;
+  left: 32px;
+  font-size: 12px;
+  color: #520006;
+}
+
+/* Focus effect for inputs */
+.input-box input:focus,
+.input-box select:focus {
+  border-color: #520006;
+  box-shadow: 0 0 0 2px rgba(82,0,6,0.2);
+}
+
+/* ------------------ Terms checkbox ------------------ */
+.signup-form .terms {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  color: #414141;
+}
+
+.signup-form .terms input {
+  margin-right: 8px;
+  accent-color: #520006;
+}
+
+/* ------------------ Buttons ------------------ */
+.submit-button,
+.google-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+/* Submit / Sign Up Button */
+.submit-button {
+  background-color: #520006;
+  color: #ffc600;
+}
+
+.submit-button:hover {
+  background-color: #3d0004;
+}
+
+/* Google Button */
+.google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc600;
+  color: #520006;
+}
+
+.google-button i {
+  margin-right: 8px;
+  background-color: transparent;
+}
+
+.google-button:hover {
+  background-color: #e6b800;
+}
+
+/* Already have account link */
+.login-link {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 15px;
+  color: #414141;
+}
+
+.login-link span {
+  display: inline-block;
+  color: #520006;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+.login-link span:hover {
+  text-decoration: underline;
+  color: #3d0004;
+  transform: scale(1.05);
+}
+
+/* ------------------ Responsive Design ------------------ */
+/* Mobile */
+@media (max-width: 768px) {
+  .signup-container > div {
+    max-width: 90%;
+    padding: 30px 20px;
+  }
+
+  .signup-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .input-box input,
+  .input-box select,
+  .submit-button,
+  .google-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .signup-form .row {
+    flex-direction: column;
+  }
+}
+
+/* Desktop: 2 inputs in one row for larger screens */
+@media (min-width: 1025px) {
+  .signup-container > div {
+    max-width: 600px;
+    padding: 50px 40px;
+  }
+
+  .signup-form .row.double {
+    flex-direction: row;
+  }
+
+  .signup-form .row.double .input-box:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  .signup-form .row.single {
+    flex-direction: column;
+  }
+}

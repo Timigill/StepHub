@@ -1,6 +1,5 @@
-// app/layout.js
-import Navbar from "../components/lime-light/navbar/navbar";
-// import Footer from "./components/Footer";
+// app/layout.js  (SERVER component - yahan use client NAHI hoga)
+import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
 
 export const metadata = {
   title: "My E-Commerce Store",
@@ -11,9 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-100 text-gray-900">
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        {/* <Footer /> */}
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

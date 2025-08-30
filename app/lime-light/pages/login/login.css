@@ -1,0 +1,190 @@
+/* Container */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffc600, #520006);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card */
+.login-container > div {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 400px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Heading */
+.login-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #520006;
+  font-weight: bold;
+}
+
+/* Input Box with Floating Label */
+.input-box {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: #333;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-box label {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  font-size: 1rem;
+  color: #555;
+  pointer-events: none;
+  transition: 0.3s all;
+}
+
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #520006;
+  background: #fff;
+  padding: 0 5px;
+}
+
+/* Icon inside input */
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #520006;
+  pointer-events: none;
+}
+
+/* Add padding-left to input so text doesn't overlap icon */
+.input-box input {
+  padding-left: 35px;
+}
+
+/* Checkbox */
+.login-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.login-checkbox input {
+  margin-right: 10px;
+  accent-color: #520006;
+}
+
+/* Buttons */
+.login-button,
+.google-button,
+.signup-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Login button */
+.login-button {
+  background-color: #520006;
+  color: #ffc600;
+  margin-bottom: 15px;
+}
+
+.login-button:hover {
+  background-color: #3d0004;
+}
+
+/* Google button */
+.google-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc600;
+  color: #520006;
+  margin-bottom: 15px;
+}
+
+.google-button:hover {
+  background-color: #e6b800;
+}
+
+/* Signup button */
+.signup-button {
+  background: none;
+  color: #520006;
+  transition: transform 0.3s ease-in-out;
+}
+
+.signup-button:hover {
+  color: #3d0004;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-container > div {
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .login-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .input-box input {
+    font-size: 0.9rem;
+    padding: 10px 15px 10px 35px;
+  }
+
+  .login-button,
+  .google-button,
+  .signup-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container > div {
+    padding: 35px 25px;
+    max-width: 350px;
+  }
+
+  .login-container h2 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .login-container > div {
+    max-width: 400px;
+  }
+}

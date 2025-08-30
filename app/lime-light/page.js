@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { FiShoppingBag } from "react-icons/fi";
 import "../lime-light/lime-light.css";
 
 export default function HomePage() {
@@ -9,6 +10,45 @@ export default function HomePage() {
     "/banner2.jpg",
     "/banner3.jpg",
     "/banner4.png",
+  ];
+
+  const products = [
+    {
+      id: 1,
+      img: "/image1.jpg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 3,399",
+    },
+    {
+      id: 2,
+      img: "/image2.jpg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 3,799",
+    },
+    {
+      id: 3,
+      img: "/image3.jpeg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 3,599",
+    },
+    {
+      id: 4,
+      img: "/image4.jpeg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 3,899",
+    },
+    {
+      id: 5,
+      img: "/men.jpeg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 3,499",
+    },
+    {
+      id: 6,
+      img: "/women.jpeg",
+      title: "3 Piece Cambric Suit-Printed (Unstitched)",
+      price: "Rs. 5,499",
+    },
   ];
 
   const scrollRef = useRef(null);
@@ -104,52 +144,52 @@ export default function HomePage() {
 
           {/* Right side circular images */}
           <div className="accessories-scroll" ref={scrollRef}>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-                <p>BAGS</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>JEWELRY</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>WALLETS</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>WATCHES</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>SUNGLASSES</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>HAIR ACCESSORIES</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>SCARVES</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>DUPATTAS</p>
-              </div>
-              <div className="accessory-card">
-                <img src="/p1.png" alt="Bags" />
-
-                <p>MUFFLERS</p>
-              </div>
-
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+              <p>BAGS</p>
             </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>JEWELRY</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>WALLETS</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>WATCHES</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>SUNGLASSES</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>HAIR ACCESSORIES</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>SCARVES</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>DUPATTAS</p>
+            </div>
+            <div className="ready-card">
+              <img src="/p1.png" alt="Bags" />
+
+              <p>MUFFLERS</p>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -262,7 +302,7 @@ export default function HomePage() {
               <div className="accessory-card">
                 <img src="/p1.png" alt="Bags" />
 
-                <p>HAIR ACCESSORIES</p>
+                <p>HAIR </p>
               </div>
               <div className="accessory-card">
                 <img src="/p1.png" alt="Bags" />
@@ -286,7 +326,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      
+      {/* last section  */}
+
+      <section className="new-arrivals">
+        <div className="left">
+          <h2>
+            NEW <br /> ARRIVALS
+          </h2>
+        </div>
+
+        <div className="right">
+          {products.map((item) => (
+            <div key={item.id} className="card">
+              <img src={item.img} alt={item.title} />
+              <h3>{item.title}</h3>
+              <p className="price">{item.price}</p>
+              <div className="cart-icon">
+                <FiShoppingBag size={20} />
+              </div>
+            </div>
+
+          ))}
+          <div className="card view-all">
+            <h2>VIEW ALL <br /> 160 <br /> ARTICLES</h2>
+            
+          </div>
+
+
+        </div>
+      </section>
 
 
 

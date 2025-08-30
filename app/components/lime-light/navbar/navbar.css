@@ -87,10 +87,8 @@ Base Navbar
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 20px 60px;
   z-index: 99;
-
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
-
   display: grid;
   opacity: 0;
   transform: translateY(15px);
@@ -107,6 +105,7 @@ Base Navbar
 
 
 .mega-menu .menu-column {
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
 }
