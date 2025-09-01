@@ -40,7 +40,10 @@ export default function SignupPage() {
       const data = await res.json();
       if (res.ok) {
         alert("✅ " + data.message);
-        router.push("/lime-light/pages/login");
+          localStorage.setItem("verifyEmail", form.email);
+        // router.push("/lime-light/pages/verify");
+        router.push(`/lime-light/pages/verify?email=${encodeURIComponent(form.email)}`);
+
       } else {
         alert("❌ " + data.error);
       }
@@ -183,6 +186,7 @@ export default function SignupPage() {
                     <option value="Karachi">Karachi</option>
                     <option value="Lahore">Lahore</option>
                     <option value="Islamabad">Islamabad</option>
+                    <option value="Faisalabad">Faisalabad</option>
                   </>
                 )}
                 {form.country === "USA" && (
@@ -212,14 +216,20 @@ export default function SignupPage() {
           </div>
 
           {/* Terms & Conditions */}
-          <div className="terms">
+          <div
+            className="terms"
+            onClick={() => setForm({ ...form, agree: !form.agree })}
+            style={{ cursor: "pointer" }}
+          >
             <input
               type="checkbox"
               checked={form.agree}
               onChange={(e) => setForm({ ...form, agree: e.target.checked })}
+              onClick={(e) => e.stopPropagation()} 
             />
             <label>I agree to the Terms & Conditions</label>
           </div>
+
 
           {/* Sign Up Button */}
           <button type="submit" className="submit-button" disabled={loading}>

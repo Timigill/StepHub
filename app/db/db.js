@@ -1,21 +1,26 @@
+import mongoose from "mongoose";
 
-import mongoose, { connect } from "mongoose";
-import { User } from "@/models/user";
+const MONGO_URI = process.env.MONGO_URI;
 
-export function connectIt() {
-    mongoose.connect("mongodb+srv://ali:abc1234567@cluster0.xht8ahs.mongodb.net/zero-master").then(() => {
-        console.log("db connected ho gai ha ");
-    });
+if (!MONGO_URI) {
+  throw new Error("Please define the MONGO_URI environment variable inside .env.local");
 }
 
-export async function getAllUsers() {
-    return await User.aggregate([
-        {
-            $project: {
-                fullName: 1,
-                email: 1, 
+let cached = global.mongoose;
 
-            },
-        },
-    ]);
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
+
+export async function connectIt() {
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }).then((mongoose) => mongoose);
+  }
+  cached.conn = await cached.promise;
+  return cached.conn;
 }

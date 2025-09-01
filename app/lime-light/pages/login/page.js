@@ -6,36 +6,31 @@ import "./login.css";
 import { FaUser, FaLock, FaGoogle } from "react-icons/fa";
 
 export default function LoginPage() {
-  const [form, setForm] = useState({
-    identifier: "",
-    password: "",
-    agree: false,
-  });
+  const [form, setForm] = useState({ identifier: "", password: "", agree: false });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.agree) {
-      alert("⚠️ Please agree to the terms before login");
-      return;
-    }
-    setLoading(true);
+    if (!form.agree) return alert("⚠️ Please agree to the terms before login");
 
+    setLoading(true);
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          identifier: form.identifier,
-          password: form.password,
+          identifier: form.identifier, // email or phone
+          password: form.password
         }),
       });
 
       const data = await res.json();
       if (res.ok) {
         alert("✅ " + data.message);
-        router.push("/dashboard");
+        // Optionally save token
+        localStorage.setItem("token", data.token);
+        router.push("/lime-light");
       } else {
         alert("❌ " + data.error);
       }
@@ -52,7 +47,6 @@ export default function LoginPage() {
       <div>
         <h2>Login</h2>
         <form onSubmit={handleSubmit} className="login-form">
-          {/* Email / Phone */}
           <div className="input-box">
             <FaUser className="icon" />
             <input
@@ -65,7 +59,6 @@ export default function LoginPage() {
             <label>Email or Phone Number</label>
           </div>
 
-          {/* Password */}
           <div className="input-box">
             <FaLock className="icon" />
             <input
@@ -78,7 +71,6 @@ export default function LoginPage() {
             <label>Password</label>
           </div>
 
-          {/* Terms Checkbox */}
           <label className="login-checkbox">
             <input
               type="checkbox"
@@ -88,19 +80,16 @@ export default function LoginPage() {
             I agree to the terms
           </label>
 
-          {/* Login Button */}
           <button type="submit" className="login-button" disabled={loading}>
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
-        {/* Google Button */}
         <button className="google-button">
-          <FaGoogle style={{ marginRight: "8px", background: "transparent" }} />
+          <FaGoogle style={{ marginRight: "8px", background:"transparent" }} />
           Continue with Google
         </button>
 
-        {/* Signup Button */}
         <button
           onClick={() => router.push("/lime-light/pages/signup")}
           className="signup-button"

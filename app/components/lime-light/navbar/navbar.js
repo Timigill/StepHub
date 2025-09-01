@@ -6,10 +6,10 @@ import "./navbar.css";
 import { useState, useEffect } from "react";
 import { FiUser, FiSearch, FiShoppingBag } from "react-icons/fi";
 
-
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -17,10 +17,13 @@ export default function Navbar() {
                 setOpen(false);
             }
         };
-
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    const toggleDropdown = (menu) => {
+        setActiveDropdown(activeDropdown === menu ? null : menu);
+    };
 
     return (
         <nav className="navbar">
@@ -42,8 +45,13 @@ export default function Navbar() {
                 <div className="links">
                     {/* Fashion */}
                     <div className="dropdown">
-                        <Link href="/fashion" className="fashion">Fashion</Link>
-                        <div className="mega-menu box" >
+                        <button
+                            className="fashion"
+                            onClick={() => toggleDropdown("fashion")}
+                        >
+                            Fashion
+                        </button>
+                        <div className={`mega-menu fashion ${activeDropdown === "fashion" ? "show" : ""}`}>
                             <div className="menu-column ">
                                 <h4>Men</h4>
                                 <ul>
@@ -52,7 +60,6 @@ export default function Navbar() {
                                     <li><Link href="/fashion/men/jackets">Jackets</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -61,7 +68,6 @@ export default function Navbar() {
                                     <li><Link href="/fashion/women/skirts">Skirts</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Kids</h4>
                                 <ul>
@@ -70,7 +76,6 @@ export default function Navbar() {
                                     <li><Link href="/fashion/kids/jackets">Jackets</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Accessories</h4>
                                 <ul>
@@ -82,11 +87,15 @@ export default function Navbar() {
                         </div>
                     </div>
 
-
                     {/* Shoes */}
                     <div className="dropdown">
-                        <Link href="/shoes" className="fashion">Shoes</Link>
-                        <div className="mega-menu">
+                        <button
+                            className="fashion"
+                            onClick={() => toggleDropdown("shoes")}
+                        >
+                            Shoes
+                        </button>
+                        <div className={`mega-menu shoes ${activeDropdown === "shoes" ? "show" : ""}`}>
                             <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
@@ -96,7 +105,6 @@ export default function Navbar() {
                                     <li><Link href="/shoes/men/slippers">Slippers</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -106,7 +114,6 @@ export default function Navbar() {
                                     <li><Link href="/shoes/women/wedges">Wedges</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Formal Shoes</h4>
                                 <ul>
@@ -116,7 +123,6 @@ export default function Navbar() {
                                     <li><Link href="/shoes/formal/peep-toes">Peep Toes</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>By Heel Size</h4>
                                 <ul>
@@ -126,7 +132,6 @@ export default function Navbar() {
                                     <li><Link href="/shoes/heels/flats">Flats</Link></li>
                                 </ul>
                             </div>
-
                             <div className="menu-column">
                                 <h4>Ethnic</h4>
                                 <ul>
@@ -136,14 +141,17 @@ export default function Navbar() {
                                 </ul>
                             </div>
                         </div>
-
                     </div>
 
                     {/* Bags */}
                     <div className="dropdown">
-                        <Link href="/bags" className="fashion">Bags</Link>
-                        <div className="mega-menu">
-                            {/* Men Section */}
+                        <button
+                            className="fashion"
+                            onClick={() => toggleDropdown("bags")}
+                        >
+                            Bags
+                        </button>
+                        <div className={`mega-menu bags ${activeDropdown === "bags" ? "show" : ""}`}>
                             <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
@@ -153,8 +161,6 @@ export default function Navbar() {
                                     <li><Link href="/bags/men/wallets">Wallets</Link></li>
                                 </ul>
                             </div>
-
-                            {/* Women Section */}
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -166,15 +172,17 @@ export default function Navbar() {
                                 </ul>
                             </div>
                         </div>
-
                     </div>
 
                     {/* Cosmetics */}
                     <div className="dropdown">
-                        <Link href="/cosmetics" className="fashion">Cosmetics</Link>
-                        <div className="mega-menu cosmetics">
-
-                            {/* Men */}
+                        <button
+                            className="fashion"
+                            onClick={() => toggleDropdown("cosmetics")}
+                        >
+                            Cosmetics
+                        </button>
+                        <div className={`mega-menu cosmetics ${activeDropdown === "cosmetics" ? "show" : ""}`}>
                             <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
@@ -182,8 +190,6 @@ export default function Navbar() {
                                     <li><Link href="/cosmetics/men/fragrance">Fragrance</Link></li>
                                 </ul>
                             </div>
-
-                            {/* Women */}
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -192,8 +198,6 @@ export default function Navbar() {
                                     <li><Link href="/cosmetics/women/fragrance">Fragrance</Link></li>
                                 </ul>
                             </div>
-
-                            {/* Unisex */}
                             <div className="menu-column">
                                 <h4>Unisex</h4>
                                 <ul>
@@ -202,10 +206,8 @@ export default function Navbar() {
                                     <li><Link href="/cosmetics/unisex/bodycare">Body Care</Link></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
 
                 <div className="bottom-link">
@@ -215,26 +217,22 @@ export default function Navbar() {
                 </div>
             </div>
 
-             {/* Icons */}
-                    <div className="right-icon">
-                        <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
-                        <Link href="/account"><FiUser /></Link>
-                        <Link href="/cart"><FiShoppingBag /></Link>
+            {/* Icons */}
+            <div className="right-icon">
+                <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
+                <Link href="/account"><FiUser /></Link>
+                <Link href="/cart"><FiShoppingBag /></Link>
 
-                        {/* Search Box (toggle) */}
-                        {searchOpen && (
-                            <div className="search-box">
-                                <input
-                                    type="text"
-                                    placeholder="Search products..."
-                                    className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-                                />
-                            </div>
-                        )}
+                {searchOpen && (
+                    <div className="search-box">
+                        <input
+                            type="text"
+                            placeholder="Search products..."
+                            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        />
                     </div>
-
-
-
+                )}
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -244,20 +242,13 @@ export default function Navbar() {
                 ☰
             </button>
 
-
-
-
             {/* Mobile Dropdown */}
             {open && (
                 <div className="mobile-links">
-
-                    {/* Icons */}
                     <div className="mobile">
                         <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
                         <Link href="/account"><FiUser /></Link>
                         <Link href="/cart"><FiShoppingBag /></Link>
-
-                        {/* Search Box (toggle) */}
                         {searchOpen && (
                             <div className="search-box">
                                 <input
@@ -272,7 +263,6 @@ export default function Navbar() {
                     <Link href="/shoes">Shoes</Link>
                     <Link href="/bags">Bags</Link>
                     <Link href="/cosmetics">Cosmetics</Link>
-
                 </div>
             )}
         </nav>

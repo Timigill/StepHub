@@ -1,7 +1,6 @@
 import { connectIt } from "./app/db/db";
 
-export function register (){
-    connectIt();
-   
-    
+export async function register() {
+  await connectIt();
+  console.log("✅ MongoDB connected in instrumentation hook");
 }

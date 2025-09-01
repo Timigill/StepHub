@@ -8,7 +8,7 @@ export default function LayoutWrapper({ children }) {
   const pathname = usePathname();
 
   // jahan Navbar/Footer hide karna ho
-  const noLayoutRoutes = ["/lime-light/pages/login", "/lime-light/pages/signup"];
+  const noLayoutRoutes = ["/lime-light/pages/login", "/lime-light/pages/signup","/lime-light/pages/verify"];
   const hideLayout = noLayoutRoutes.includes(pathname);
 
   return (

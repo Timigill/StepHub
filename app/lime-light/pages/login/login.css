@@ -7,6 +7,7 @@
   background: linear-gradient(135deg, #ffc600, #520006);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
 }
 
 /* Card */
@@ -15,15 +16,15 @@
   padding: 40px 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  max-width: 400px;
   width: 100%;
+  max-width: 400px;
   transition: all 0.3s ease;
 }
 
 /* Heading */
 .login-container h2 {
   text-align: center;
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 2rem);
   margin-bottom: 25px;
   color: #520006;
   font-weight: bold;
@@ -37,7 +38,7 @@
 
 .input-box input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 12px 15px 12px 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
   outline: none;
@@ -49,12 +50,15 @@
 
 .input-box label {
   position: absolute;
-  top: 15px;
-  left: 35px;
+  top: 50%;
+  left: 40px;
+  transform: translateY(-50%);
   font-size: 1rem;
   color: #555;
   pointer-events: none;
   transition: 0.3s all;
+  background: #fff;
+  padding: 0 5px;
 }
 
 .input-box input:focus + label,
@@ -63,8 +67,6 @@
   left: 10px;
   font-size: 0.8rem;
   color: #520006;
-  background: #fff;
-  padding: 0 5px;
 }
 
 /* Icon inside input */
@@ -75,11 +77,6 @@
   transform: translateY(-50%);
   color: #520006;
   pointer-events: none;
-}
-
-/* Add padding-left to input so text doesn't overlap icon */
-.input-box input {
-  padding-left: 35px;
 }
 
 /* Checkbox */
@@ -148,22 +145,18 @@
   transform: scale(1.05);
 }
 
-/* Responsive */
+/* Responsive tweaks */
 @media (max-width: 480px) {
   .login-container > div {
-    padding: 30px 20px;
-    max-width: 90%;
+    padding: 25px 15px;
   }
-
   .login-container h2 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
-
   .input-box input {
     font-size: 0.9rem;
-    padding: 10px 15px 10px 35px;
+    padding: 10px 10px 10px 35px;
   }
-
   .login-button,
   .google-button,
   .signup-button {
@@ -174,17 +167,10 @@
 
 @media (max-width: 768px) {
   .login-container > div {
+    max-width: 80%;
     padding: 35px 25px;
-    max-width: 350px;
   }
-
   .login-container h2 {
-    font-size: 1.9rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .login-container > div {
-    max-width: 400px;
+    font-size: 1.8rem;
   }
 }

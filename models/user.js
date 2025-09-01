@@ -1,9 +1,11 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-let userSchema = mongoose.Schema({
-    fullName : String,
-    password : String,
-    email : String
-})
+// const UserSchema = new mongoose.Schema({
+//   email: { type: String, unique: true, required: true },
+//   password: { type: String, required: true },
+//   isVerified: { type: Boolean, default: false },
+//   otp: { type: String },
+//   otpExpires: { type: Date },
+// });
 
-export let User = mongoose.models.user || mongoose.model("user" , userSchema);
+// export default mongoose.models.User || mongoose.model("User", UserSchema);

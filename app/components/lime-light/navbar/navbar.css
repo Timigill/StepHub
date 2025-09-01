@@ -41,8 +41,10 @@ Base Navbar
     justify-content: center;
 }
 
-.center .links a {
+.center .links button {
     position: relative;
+    border: none;
+    outline: none;
     color: #000;
     font-size: 12px !important;
     transition: color 0.3s ease;
@@ -50,7 +52,7 @@ Base Navbar
     padding: 4px 6px;
 }
 
-.center .links a::after {
+.center .links button::after {
     content: "";
     position: absolute;
     left: 0;
@@ -63,11 +65,11 @@ Base Navbar
     transition: transform 0.3s ease-out;
 }
 
-.center .links a:hover {
+.center .links button:hover {
     color: #520006;
 }
 
-.center .links a:hover::after {
+.center .links button:hover::after {
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -86,9 +88,9 @@ Base Navbar
   border-bottom: 1px solid #ccc;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 20px 60px;
+  justify-content: center;
   z-index: 99;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 40px;
+  gap: 100px;
   display: grid;
   opacity: 0;
   transform: translateY(15px);
@@ -96,6 +98,10 @@ Base Navbar
   transition: opacity 0.4s ease, transform 0.4s ease;
 
 }
+.center .links .dropdown .mega-menu.fashion   { grid-template-columns: repeat(4, auto); }
+.center .links .dropdown .mega-menu.shoes     { grid-template-columns: repeat(5, auto); }
+.center .links .dropdown .mega-menu.bags      { grid-template-columns: repeat(2, auto); }
+.center .links .dropdown .mega-menu.cosmetics { grid-template-columns: repeat(3, auto); }
 
 .center .links .dropdown:hover .mega-menu {
   opacity: 1;
@@ -103,16 +109,19 @@ Base Navbar
   pointer-events: auto;
 }
 
+.center .links .dropdown .mega-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 
 .mega-menu .menu-column {
   padding: 1rem 1rem;
-  display: flex;
   flex-direction: column;
 }
 .mega-menu .menu-column h4 {
   font-size: 16px;
   font-weight: 600;
-  margin-left: 7px;
   text-transform: uppercase;
   color: #ffc600;
   margin-top: 8px;
@@ -129,17 +138,38 @@ Base Navbar
 }
 
 .mega-menu .menu-column a {
+  position: relative;
+  margin-top: 20px;
   font-size: 15px;
   color: #272727;
-  letter-spacing: none;
   text-decoration: none;
   text-transform: none;
   transition: color 0.2s;
 }
 
+/* underline effect */
+.mega-menu .menu-column a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #ffc600;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-out;
+}
+
 .mega-menu .menu-column a:hover {
   color: #520006;
 }
+
+.mega-menu .menu-column a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 
 .fashion{
     letter-spacing: 5px;
@@ -284,8 +314,8 @@ Base Navbar
 }
 .mobile-links .mobile button {
   position: relative;
-  font-size: 28px;
-  margin-left: 10px;
+  font-size: 24px;
+  margin-left: 15px;
   margin-right: 10px;
   color: #ffc600;
   cursor: pointer;
@@ -319,7 +349,7 @@ Base Navbar
 }
 
 .mobile-links .mobile a{
-    font-size: 28px;
+    font-size: 24px;
     margin-right: 10px;
     color: #ffc600;
     padding: 0;
