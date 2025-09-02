@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react"; // 👈 add this
 import "./login.css";
 import { FaUser, FaLock, FaGoogle } from "react-icons/fa";
 
@@ -21,14 +22,13 @@ export default function LoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           identifier: form.identifier, // email or phone
-          password: form.password
+          password: form.password,
         }),
       });
 
       const data = await res.json();
       if (res.ok) {
         alert("✅ " + data.message);
-        // Optionally save token
         localStorage.setItem("token", data.token);
         router.push("/lime-light");
       } else {
@@ -41,6 +41,14 @@ export default function LoginPage() {
       setLoading(false);
     }
   };
+
+  // 🔑 Handle Google login
+  const handleGoogleLogin = async () => {
+  await signIn("google", { 
+    callbackUrl: "/lime-light", 
+    prompt: "select_account" // 🔑 force account selection
+  });
+};
 
   return (
     <div className="login-container">
@@ -85,11 +93,13 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <button className="google-button">
-          <FaGoogle style={{ marginRight: "8px", background:"transparent" }} />
+        {/* Google Login */}
+        <button className="google-button" onClick={handleGoogleLogin}>
+          <FaGoogle style={{ marginRight: "8px", background: "transparent" }} />
           Continue with Google
         </button>
 
+        {/* Signup link */}
         <button
           onClick={() => router.push("/lime-light/pages/signup")}
           className="signup-button"

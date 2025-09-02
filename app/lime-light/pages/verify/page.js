@@ -12,6 +12,7 @@ export default function VerifyPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+
   // Get email from query params or localStorage
   useEffect(() => {
     const emailFromParam = searchParams.get("email");
@@ -97,7 +98,7 @@ export default function VerifyPage() {
               maxLength={6}
             />
             <label>
-              <FaKey style={{ marginRight: "6px" }} /> Enter OTP
+              <FaKey style={{ marginRight: "6px",background:"transparent" }} /> Enter OTP
             </label>
           </div>
 

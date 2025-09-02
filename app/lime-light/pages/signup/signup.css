@@ -1,27 +1,33 @@
 /* ------------------ Container ------------------ */
 .signup-container {
   min-height: 100vh;
+  background: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #ffc600, #520006);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* ------------------ Card ------------------ */
 .signup-container > div {
-  background: #fff;
+  background: linear-gradient(135deg, #ffd53d, #97222a);
+
   padding: 40px 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   max-width: 400px;
   transition: all 0.3s ease;
 }
+.signup-form{
+  background: transparent;
+
+}
 
 /* ------------------ Heading ------------------ */
 .signup-container h2 {
   text-align: center;
+  background: transparent;
   font-size: 2rem;
   margin-bottom: 25px;
   color: #520006;
@@ -39,12 +45,15 @@
 /* ------------------ Input Box with Floating Label & Icon ------------------ */
 .input-box {
   position: relative;
+  background: transparent;
+
   width: 100%;
   margin-bottom: 17px;
 }
 
 .input-box .icon {
   position: absolute;
+  background: none;
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
@@ -56,9 +65,9 @@
 .input-box input,
 .input-box select {
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid #520006;
   border-radius: 10px;
-  padding: 16px 10px 9px 36px; /* space for icon */
+  padding: 16px 10px 9px 36px; 
   font-size: 1rem;
   outline: none;
   background: transparent;
@@ -70,10 +79,10 @@
   left: 36px;
   top: 14px;
   font-size: 1rem;
-  color: #555;
+  color: #520006;
   pointer-events: none;
   transition: all 0.3s ease;
-  background: #fff;
+  background: transparent;
   padding: 0 4px;
 }
 
@@ -81,8 +90,8 @@
 .input-box input:not(:placeholder-shown) + label,
 .input-box select:focus + label,
 .input-box select:not([value=""]) + label {
-  top: -7px;
-  left: 32px;
+  top: -13px;
+  left: 25px;
   font-size: 12px;
   color: #520006;
 }
@@ -90,17 +99,20 @@
 /* Focus effect for inputs */
 .input-box input:focus,
 .input-box select:focus {
-  border-color: #520006;
-  box-shadow: 0 0 0 2px rgba(82,0,6,0.2);
+  border: 1px solid #520006;
+  background: transparent;
 }
+
+
 
 /* ------------------ Terms checkbox ------------------ */
 .signup-form .terms {
   display: flex;
   align-items: center;
+  background: transparent;
   font-size: 0.9rem;
   margin: 15px 0;
-  color: #414141;
+  color: #520006;
   cursor: pointer;   
   user-select: none; 
 }
@@ -110,7 +122,16 @@
   accent-color: #520006; 
   cursor: pointer;       
 }
+.signup-form .terms label{
+  background: transparent;
+}
 
+.row.double {
+  background: transparent;
+}
+.row.double input, .row.double select{
+  color: #520006;
+}
 
 /* ------------------ Buttons ------------------ */
 .submit-button,
@@ -133,7 +154,8 @@
 }
 
 .submit-button:hover {
-  background-color: #3d0004;
+  background-color: #ffc600;
+  color: #520006;
 }
 
 /* Google Button */
@@ -151,33 +173,39 @@
 }
 
 .google-button:hover {
-  background-color: #e6b800;
+  background-color: #520006;
+  color: #ffc600;
 }
 
 /* Already have account link */
 .login-link {
   text-align: center;
   font-size: 1rem;
-  margin-top: 15px;
-  color: #414141;
+  margin-top: 25px;
+  margin-bottom: -20px;
+  color: #520006;
+  background: transparent;
 }
 
 .login-link span {
   display: inline-block;
-  color: #520006;
+  margin-left: 10px;
+  font-size: 18px;
+  color: #ffc600;
   font-weight: 600;
+  background: transparent;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, color 0.3s ease;
 }
 
 .login-link span:hover {
   text-decoration: underline;
-  color: #3d0004;
+  color: #ffc600;
   transform: scale(1.05);
 }
 
 /* ------------------ Responsive Design ------------------ */
-/* Mobile */
+/* ------------------ Mobile Fix ------------------ */
 @media (max-width: 768px) {
   .signup-container > div {
     max-width: 90%;
@@ -193,13 +221,33 @@
   .submit-button,
   .google-button {
     font-size: 0.9rem;
-    padding: 10px;
+    padding: 15px 10px 10px 36px; 
   }
 
-  .signup-form .row {
-    flex-direction: column;
+  .input-box label {
+    left: 36px; 
   }
+
+  .input-box select:focus + label,
+  .input-box select:not([value=""]) + label {
+    top: -14px;
+    left: 25px; 
+    font-size: 12px;
+    color: #520006;
+  }
+
+.login-link {
+  font-size: 0.9rem; 
+  margin-top: 2px;
+  padding: 4px 0;
 }
+
+.login-link span {
+  font-size: 14px;
+  margin-left: 5px; 
+}
+}
+
 
 @media (min-width: 1025px) {
   .signup-container > div {

@@ -4,12 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import "./navbar.css";
 import { useState, useEffect } from "react";
-import { FiUser, FiSearch, FiShoppingBag } from "react-icons/fi";
+import { FiUser, FiSearch, FiShoppingBag, FiLogIn } from "react-icons/fi";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+
+    const { data: session, status } = useSession();
+    console.log("Session status:", status);
+    console.log("Session data:", session);
+    const router = useRouter();
 
     useEffect(() => {
         const handleResize = () => {
@@ -40,10 +47,10 @@ export default function Navbar() {
                 </Link>
             </div>
 
-            {/* Desktop Links */}
+            {/* Center Links */}
             <div className="center">
                 <div className="links">
-                    {/* Fashion */}
+                    {/* Fashion Dropdown */}
                     <div className="dropdown">
                         <button
                             className="fashion"
@@ -52,7 +59,7 @@ export default function Navbar() {
                             Fashion
                         </button>
                         <div className={`mega-menu fashion ${activeDropdown === "fashion" ? "show" : ""}`}>
-                            <div className="menu-column ">
+                            <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
                                     <li><Link href="/fashion/men/shirts">Shirts</Link></li>
@@ -87,7 +94,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Shoes */}
+                    {/* Shoes Dropdown */}
                     <div className="dropdown">
                         <button
                             className="fashion"
@@ -95,7 +102,9 @@ export default function Navbar() {
                         >
                             Shoes
                         </button>
+
                         <div className={`mega-menu shoes ${activeDropdown === "shoes" ? "show" : ""}`}>
+                            {/* Column 1 */}
                             <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
@@ -105,6 +114,8 @@ export default function Navbar() {
                                     <li><Link href="/shoes/men/slippers">Slippers</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 2 */}
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -114,36 +125,44 @@ export default function Navbar() {
                                     <li><Link href="/shoes/women/wedges">Wedges</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 3 */}
                             <div className="menu-column">
-                                <h4>Formal Shoes</h4>
+                                <h4>Kids</h4>
                                 <ul>
-                                    <li><Link href="/shoes/formal/pumps">Pumps</Link></li>
-                                    <li><Link href="/shoes/formal/moccasins">Moccasins</Link></li>
-                                    <li><Link href="/shoes/formal/court">Court Shoes</Link></li>
-                                    <li><Link href="/shoes/formal/peep-toes">Peep Toes</Link></li>
+                                    <li><Link href="/shoes/kids/sneakers">Sneakers</Link></li>
+                                    <li><Link href="/shoes/kids/school-shoes">School Shoes</Link></li>
+                                    <li><Link href="/shoes/kids/sandals">Sandals</Link></li>
+                                    <li><Link href="/shoes/kids/boots">Boots</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 4 */}
                             <div className="menu-column">
-                                <h4>By Heel Size</h4>
+                                <h4>Sports</h4>
                                 <ul>
-                                    <li><Link href="/shoes/heels/high">High Heels</Link></li>
-                                    <li><Link href="/shoes/heels/mid">Mid Heels</Link></li>
-                                    <li><Link href="/shoes/heels/low">Low Heels</Link></li>
-                                    <li><Link href="/shoes/heels/flats">Flats</Link></li>
+                                    <li><Link href="/shoes/sports/running">Running Shoes</Link></li>
+                                    <li><Link href="/shoes/sports/football">Football Shoes</Link></li>
+                                    <li><Link href="/shoes/sports/cricket">Cricket Shoes</Link></li>
+                                    <li><Link href="/shoes/sports/tennis">Tennis Shoes</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 5 */}
                             <div className="menu-column">
-                                <h4>Ethnic</h4>
+                                <h4>Sale</h4>
                                 <ul>
-                                    <li><Link href="/shoes/ethnic/khusa">Khusa</Link></li>
-                                    <li><Link href="/shoes/ethnic/chappal">Chappal</Link></li>
-                                    <li><Link href="/shoes/ethnic/kolhapuri">Kolhapuri</Link></li>
+                                    <li><Link href="/shoes/sale/men">Men’s Sale</Link></li>
+                                    <li><Link href="/shoes/sale/women">Women’s Sale</Link></li>
+                                    <li><Link href="/shoes/sale/kids">Kids’ Sale</Link></li>
+                                    <li><Link href="/shoes/sale/sports">Sports Sale</Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    {/* Bags */}
+
+                    {/* Bags Dropdown */}
                     <div className="dropdown">
                         <button
                             className="fashion"
@@ -174,7 +193,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Cosmetics */}
+                    {/* Cosmetics Dropdown */}
                     <div className="dropdown">
                         <button
                             className="fashion"
@@ -182,7 +201,9 @@ export default function Navbar() {
                         >
                             Cosmetics
                         </button>
+
                         <div className={`mega-menu cosmetics ${activeDropdown === "cosmetics" ? "show" : ""}`}>
+                            {/* Column 1 */}
                             <div className="menu-column">
                                 <h4>Men</h4>
                                 <ul>
@@ -190,6 +211,8 @@ export default function Navbar() {
                                     <li><Link href="/cosmetics/men/fragrance">Fragrance</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 2 */}
                             <div className="menu-column">
                                 <h4>Women</h4>
                                 <ul>
@@ -198,16 +221,19 @@ export default function Navbar() {
                                     <li><Link href="/cosmetics/women/fragrance">Fragrance</Link></li>
                                 </ul>
                             </div>
+
+                            {/* Column 3 */}
                             <div className="menu-column">
-                                <h4>Unisex</h4>
+                                <h4>Kids</h4>
                                 <ul>
-                                    <li><Link href="/cosmetics/unisex/perfumes">Perfumes</Link></li>
-                                    <li><Link href="/cosmetics/unisex/haircare">Haircare</Link></li>
-                                    <li><Link href="/cosmetics/unisex/bodycare">Body Care</Link></li>
+                                    <li><Link href="/cosmetics/kids/skincare">Skincare</Link></li>
+                                    <li><Link href="/cosmetics/kids/fragrance">Fragrance</Link></li>
+                                    <li><Link href="/cosmetics/kids/lotion">Lotion</Link></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div className="bottom-link">
@@ -217,12 +243,36 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Icons */}
+            {/* Right Icons */}
             <div className="right-icon">
-                <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
-                <Link href="/account"><FiUser /></Link>
-                <Link href="/cart"><FiShoppingBag /></Link>
+                {/* Search */}
+                <button onClick={() => setSearchOpen(!searchOpen)}>
+                    <FiSearch />
+                </button>
 
+                {/* User Icon or Login Button */}
+                {session?.user ? (
+                    // Agar user login hai
+                    <Link href="/lime-light/pages/account">
+                        <FiUser />
+                    </Link>
+                ) : (
+                    // Agar user login nahi hai
+                    <button
+                        onClick={() => router.push("/lime-light/pages/login")}
+                        style={{ marginLeft: "-8px" }}
+                    >
+                        <FiLogIn />
+                    </button>
+                )}
+
+
+                {/* Cart */}
+                <Link href="/cart">
+                    <FiShoppingBag />
+                </Link>
+
+                {/* Search Box */}
                 {searchOpen && (
                     <div className="search-box">
                         <input
@@ -247,8 +297,22 @@ export default function Navbar() {
                 <div className="mobile-links">
                     <div className="mobile">
                         <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
-                        <Link href="/account"><FiUser /></Link>
+
+                        {session ? (
+                            <Link href="/account"><FiUser /></Link>
+
+                        ) : (
+
+                            <button
+                                onClick={() => router.push("/lime-light/pages/login")}
+
+                            >
+                                <FiLogIn />
+                            </button>
+                        )}
+
                         <Link href="/cart"><FiShoppingBag /></Link>
+
                         {searchOpen && (
                             <div className="search-box">
                                 <input

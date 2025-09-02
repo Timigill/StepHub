@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { FaUser, FaEnvelope, FaLock, FaPhone, FaHome, FaGlobe, FaCity, FaVenusMars, FaBirthdayCake } from "react-icons/fa";
+import { signIn } from "next-auth/react";
+import { 
+  FaUser, FaEnvelope, FaLock, FaPhone, FaHome, FaGlobe, FaCity, 
+  FaVenusMars, FaBirthdayCake 
+} from "react-icons/fa";
 import "./signup.css";
 
 export default function SignupPage() {
@@ -40,10 +44,8 @@ export default function SignupPage() {
       const data = await res.json();
       if (res.ok) {
         alert("✅ " + data.message);
-          localStorage.setItem("verifyEmail", form.email);
-        // router.push("/lime-light/pages/verify");
+        localStorage.setItem("verifyEmail", form.email);
         router.push(`/lime-light/pages/verify?email=${encodeURIComponent(form.email)}`);
-
       } else {
         alert("❌ " + data.error);
       }
@@ -60,7 +62,6 @@ export default function SignupPage() {
       <div>
         <h2>Create Account</h2>
         <form onSubmit={handleSubmit} className="signup-form">
-
           {/* Full Name */}
           <div className="input-box">
             <FaUser className="icon" />
@@ -230,7 +231,6 @@ export default function SignupPage() {
             <label>I agree to the Terms & Conditions</label>
           </div>
 
-
           {/* Sign Up Button */}
           <button type="submit" className="submit-button" disabled={loading}>
             {loading ? "Creating Account..." : "Sign Up"}
@@ -238,8 +238,12 @@ export default function SignupPage() {
         </form>
 
         {/* Sign in with Google */}
-        <button className="google-button">
-          <i className="fab fa-google"></i> Sign in with Google
+        <button
+          type="button"
+          className="google-button"
+          onClick={() => signIn("google", { callbackUrl: "/lime-light" })}
+        >
+          <i className="fab fa-google"></i> Sign up with Google
         </button>
 
         {/* Already have account */}

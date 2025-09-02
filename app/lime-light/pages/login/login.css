@@ -3,8 +3,8 @@
   min-height: 100vh;
   display: flex;
   justify-content: center;
+  background: #ffffff;
   align-items: center;
-  background: linear-gradient(135deg, #ffc600, #520006);
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
@@ -12,7 +12,7 @@
 
 /* Card */
 .login-container > div {
-  background: #fff;
+   background: linear-gradient(135deg, #f0cd4f, #85151c);
   padding: 40px 30px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -26,20 +26,24 @@
   text-align: center;
   font-size: clamp(1.8rem, 4vw, 2rem);
   margin-bottom: 25px;
+  background: transparent;
   color: #520006;
   font-weight: bold;
 }
-
+.login-form{
+  background: transparent;
+}
 /* Input Box with Floating Label */
 .input-box {
   position: relative;
+  background: transparent;
   margin-bottom: 15px;
 }
 
 .input-box input {
   width: 100%;
   padding: 12px 15px 12px 40px;
-  border: 1px solid #ccc;
+  border: 1px solid #520006;
   border-radius: 10px;
   outline: none;
   font-size: 1rem;
@@ -54,10 +58,10 @@
   left: 40px;
   transform: translateY(-50%);
   font-size: 1rem;
-  color: #555;
+  color: #520006;
   pointer-events: none;
   transition: 0.3s all;
-  background: #fff;
+  background: transparent;
   padding: 0 5px;
 }
 
@@ -76,6 +80,7 @@
   left: 10px;
   transform: translateY(-50%);
   color: #520006;
+  background: transparent;
   pointer-events: none;
 }
 
@@ -83,14 +88,16 @@
 .login-checkbox {
   display: flex;
   align-items: center;
+  background: transparent;
   margin-bottom: 20px;
   font-size: 0.9rem;
-  color: #555;
+  color: #520006;
 }
 
 .login-checkbox input {
   margin-right: 10px;
   accent-color: #520006;
+  background: transparent;
 }
 
 /* Buttons */
@@ -115,7 +122,8 @@
 }
 
 .login-button:hover {
-  background-color: #3d0004;
+  background-color: #ffc600;
+  color: #520006;
 }
 
 /* Google button */
@@ -129,18 +137,19 @@
 }
 
 .google-button:hover {
-  background-color: #e6b800;
+  background-color: #520006;
+  color: #ffc600;
 }
 
 /* Signup button */
 .signup-button {
   background: none;
-  color: #520006;
+  color: #ffc600;
   transition: transform 0.3s ease-in-out;
 }
 
 .signup-button:hover {
-  color: #3d0004;
+  color: #ffc600;
   text-decoration: underline;
   transform: scale(1.05);
 }
@@ -150,6 +159,7 @@
   .login-container > div {
     padding: 25px 15px;
   }
+ 
   .login-container h2 {
     font-size: 1.6rem;
   }
@@ -169,6 +179,9 @@
   .login-container > div {
     max-width: 80%;
     padding: 35px 25px;
+  }
+  .login-form{
+    max-width: 540px;
   }
   .login-container h2 {
     font-size: 1.8rem;

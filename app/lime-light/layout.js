@@ -1,5 +1,6 @@
-// app/layout.js  (SERVER component - yahan use client NAHI hoga)
+// app/layout.js
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
+import Providers from "../lime-light/providers";
 
 export const metadata = {
   title: "My E-Commerce Store",
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-100 text-gray-900">
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <Providers>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </Providers>
       </body>
     </html>
   );

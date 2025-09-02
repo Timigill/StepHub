@@ -14,7 +14,12 @@ Base Navbar
     border-bottom: 1px solid #e5e7eb;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: relative;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  
+     position: fixed; /* ✅ fixed position */
+    top: 0;          /* ✅ top of the viewport */
+    left: 0;         /* ✅ align with left */
+    width: 100%;     /* ✅ full width */
+    z-index: 1000; 
 }
 
 /* Logo */
@@ -171,10 +176,7 @@ Base Navbar
 }
 
 
-.fashion{
-    letter-spacing: 5px;
-    color: #000;
-}
+
 
 .center .bottom-link {
     margin-top: 5px;
