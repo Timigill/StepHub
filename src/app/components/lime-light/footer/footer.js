@@ -45,7 +45,7 @@ export default function Footer() {
 
                 {/* More From Khaadi */}
                 <div className="footer-column">
-                    <h4>MORE FROM KHAADI</h4>
+                    <h4>MORE FROM LIBAAS</h4>
                     <ul>
                         <li><Link href="#">About Us</Link></li>
                         <li><Link href="#">Cloth Care</Link></li>
