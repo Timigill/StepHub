@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
-import '@/app/globals.css';
-import ProductList from '@/app/products/page';
+import './globals.css';
+import ProductList from '@/src/app/products/page';
 import Header from './components/header/header';
 
 export default function Home() {

@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import products from '@/app/api/products/page';
-import { useCart } from '@/app/context/cartcontext'; // Import the Cart context
+import products from '@/src/app/api/products/page';
+import { useCart } from '@/src/app/context/cartcontext'; // Import the Cart context
 import './products.css';
 
 const ProductList = () => {

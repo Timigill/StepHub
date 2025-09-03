@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useParams } from 'next/navigation';
-import products from '@/app/api/products/page'; 
-import { useCart } from '@/app/context/cartcontext'; 
+import products from '@/src/app/api/products/page'; 
+import { useCart } from '@/src/app/context/cartcontext'; 
 import './productdetails.css'; 
 
 const ProductDetails = () => {

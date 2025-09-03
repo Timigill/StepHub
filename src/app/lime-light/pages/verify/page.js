@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -9,25 +9,35 @@ export default function VerifyPage() {
   const [otp, setOtp] = useState("");
   const [email, setEmail] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [resendLoading, setResendLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
+
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  // Mark component as mounted (client-only)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Get email from query params or localStorage
   useEffect(() => {
+    if (!mounted) return;
+
     const emailFromParam = searchParams.get("email");
     const savedEmail = localStorage.getItem("verifyEmail");
 
     if (emailFromParam) {
       setEmail(emailFromParam);
-      localStorage.setItem("verifyEmail", emailFromParam); 
+      localStorage.setItem("verifyEmail", emailFromParam);
     } else if (savedEmail) {
       setEmail(savedEmail);
     } else {
       alert("❌ No email found. Please signup again.");
       router.push("/lime-light/pages/signup");
     }
-  }, [searchParams, router]);
+  }, [searchParams, router, mounted]);
 
   // Handle OTP verification
   const handleVerify = async (e) => {
@@ -64,20 +74,43 @@ export default function VerifyPage() {
   // Handle resend OTP
   const handleResend = async () => {
     if (!email) return alert("❌ Email is missing!");
+    if (resendCooldown > 0) return; // prevent spamming
+
+    setResendLoading(true);
+
     try {
       const res = await fetch("/api/auth/resend-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
+
       const data = await res.json();
-      if (res.status === 200) alert("📩 " + data.message);
-      else alert("❌ " + data.error);
+
+      if (res.status === 200) {
+        alert("📩 " + data.message);
+        setResendCooldown(30); // 30 seconds cooldown
+      } else {
+        alert("❌ " + data.error);
+      }
     } catch (err) {
       console.error("Resend OTP error:", err);
       alert("❌ Something went wrong while resending OTP!");
+    } finally {
+      setResendLoading(false);
     }
   };
+
+  // Countdown for resend cooldown
+  useEffect(() => {
+    if (resendCooldown <= 0) return;
+    const timer = setInterval(() => {
+      setResendCooldown((prev) => prev - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [resendCooldown]);
+
+  if (!mounted) return null; // wait for client mount
 
   return (
     <div className="verify-container">
@@ -98,7 +131,7 @@ export default function VerifyPage() {
               maxLength={6}
             />
             <label>
-              <FaKey style={{ marginRight: "6px",background:"transparent" }} /> Enter OTP
+              <FaKey style={{ marginRight: "6px", background: "transparent" }} /> Enter OTP
             </label>
           </div>
 
@@ -113,8 +146,11 @@ export default function VerifyPage() {
 
         <p className="resend-text">
           Didn’t receive the code?{" "}
-          <span onClick={handleResend} className="resend-link">
-            Resend OTP
+          <span
+            onClick={handleResend}
+            className={`resend-link ${resendCooldown > 0 ? "disabled" : ""}`}
+          >
+            {resendCooldown > 0 ? `Resend in ${resendCooldown}s` : "Resend OTP"}
           </span>
         </p>
       </div>

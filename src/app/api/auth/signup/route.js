@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import bcrypt from "bcryptjs";
-import { connectIt } from "@/app/db/db";
+import { connectIt } from "@/src/app/db/db";
 import User from "../../../db/models/user";
 
 export async function POST(req) {

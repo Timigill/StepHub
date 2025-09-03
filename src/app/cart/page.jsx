@@ -1,7 +1,7 @@
 'use client'; // This makes the component a client component
 
 import React, { useState } from 'react';
-import { useCart } from '@/app/context/cartcontext';
+import { useCart } from '@/src/app/context/cartcontext';
 import './cart.css'; // Import the CSS filem
 const Cart = () => {
     const { cart, removeFromCart } = useCart();

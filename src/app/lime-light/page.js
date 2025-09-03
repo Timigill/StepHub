@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { FiShoppingBag } from "react-icons/fi";
-import "../lime-light/lime-light.css";
+import "./lime-light.css";
 
 export default function HomePage() {
   const images = [

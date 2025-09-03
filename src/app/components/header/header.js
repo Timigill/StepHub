@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./header.css";
 import Link from 'next/link';
-import { useCart } from '@/app/context/cartcontext'; 
+import { useCart } from '@/src/app/context/cartcontext'; 
 
 function Header() {
     const { cartNotify } = useCart(); 

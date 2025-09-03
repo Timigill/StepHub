@@ -1,6 +1,6 @@
 // app/layout.js
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
-import Providers from "../lime-light/providers";
+import Providers from "./providers";
 
 export const metadata = {
   title: "My E-Commerce Store",

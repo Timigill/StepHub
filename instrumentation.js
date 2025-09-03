@@ -1,4 +1,4 @@
-import { connectIt } from "./app/db/db";
+import { connectIt } from "./src/app/db/db";
 
 export async function register() {
   await connectIt();

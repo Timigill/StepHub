@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 
 import { FaYoutube, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import "../footer/footer.css";
+import "./footer.css";
 
 export default function Footer() {
     const inputRef = useRef(null);
