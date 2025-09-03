@@ -5,17 +5,20 @@ import Image from "next/image";
 import "./navbar.css";
 import { useState, useEffect } from "react";
 import { FiUser, FiSearch, FiShoppingBag, FiLogIn } from "react-icons/fi";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [open, setOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-
-    const { data: session, status } = useSession();
-    console.log("Session status:", status);
-    console.log("Session data:", session);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
     const router = useRouter();
 
     useEffect(() => {
@@ -251,7 +254,7 @@ export default function Navbar() {
                 </button>
 
                 {/* User Icon or Login Button */}
-                {session?.user ? (
+                {isLoggedIn ? (
                     // Agar user login hai
                     <Link href="/lime-light/pages/account">
                         <FiUser />
@@ -298,7 +301,7 @@ export default function Navbar() {
                     <div className="mobile">
                         <button onClick={() => setSearchOpen(!searchOpen)}><FiSearch /></button>
 
-                        {session ? (
+                        {isLoggedIn ? (
                             <Link href="/account"><FiUser /></Link>
 
                         ) : (
