@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { FiShoppingBag } from "react-icons/fi";
+import Link from "next/link";
 import "./lime-light.css";
 
 export default function HomePage() {
@@ -104,34 +105,43 @@ export default function HomePage() {
       <section className="feature">
         <h2>UNSTITCHED</h2>
 
+
         <div className="product-grid">
-          <div className="product-card">
-            <img src="/image1.jpg" alt="Product 1" />
-            <div className="product-info">
-              <h3>Stylish</h3>
+          <Link href="/lime-light/stylish">
+            <div className="product-card">
+              <img src="/image1.jpg" alt="Product 1" />
+              <div className="product-info">
+                <h3>Stylish</h3>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="product-card">
-            <img src="/image2.jpg" alt="Product 2" />
-            <div className="product-info">
-              <h3>Embroidered</h3>
+          <Link href="/lime-light/embroidered">
+            <div className="product-card">
+              <img src="/image2.jpg" alt="Product 2" />
+              <div className="product-info">
+                <h3>Embroidered</h3>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="product-card">
-            <img src="/image3.jpeg" alt="Product 3" />
-            <div className="product-info">
-              <h3>Printed</h3>
+          <Link href="/lime-light/printed">
+            <div className="product-card">
+              <img src="/image3.jpeg" alt="Product 3" />
+              <div className="product-info">
+                <h3>Printed</h3>
+              </div>
             </div>
-          </div>
+          </Link>
 
-          <div className="product-card">
-            <img src="/image4.jpeg" alt="Product 4" />
-            <div className="product-info">
-              <h3>Formal</h3>
+          <Link href="/lime-light/formal">
+            <div className="product-card">
+              <img src="/image4.jpeg" alt="Product 4" />
+              <div className="product-info">
+                <h3>Formal</h3>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 
@@ -349,7 +359,7 @@ export default function HomePage() {
           ))}
           <div className="card view-all">
             <h2>VIEW ALL <br /> 160 <br /> ARTICLES</h2>
-            
+
           </div>
 
 
