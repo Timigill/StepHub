@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import "@/app/styles/homepage.css";
 
 export default function BannerSlider() {
-  const images = ["/banner1.jpg", "/banner2.png", "/banner3.jpg"];
+  const images = ["/1.png", "/2.png", "/3.png"];
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {

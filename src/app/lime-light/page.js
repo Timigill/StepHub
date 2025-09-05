@@ -7,10 +7,10 @@ import "./lime-light.css";
 
 export default function HomePage() {
   const images = [
-    "/banner1.jpg",
-    "/banner2.jpg",
-    "/banner3.jpg",
-    "/banner4.png",
+    "/1.png",
+    "/2.png",
+    "/3.png",
+   
   ];
 
   const products = [
