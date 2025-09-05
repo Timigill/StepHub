@@ -18,7 +18,7 @@ export default function Footer() {
             <div className="footer-help">
                 <h3>NEED HELP?</h3>
                 <div className="faq-box">
-                    <span>FAQS</span>
+                    <h3>FAQS</h3>
                 </div>
             </div>
 
@@ -101,7 +101,6 @@ export default function Footer() {
                         <img src="/payment.png" alt="godaddy security" />
                     </div>
                 </div>
-
                 {/* Right Side */}
                 <div className="footer-right">
                     <img src="/logo-nobg.svg" alt="khaadi logo" className="logo" />
